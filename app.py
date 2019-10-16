@@ -1,6 +1,8 @@
 import os
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+from flask import Flask, render_template, request, redirect, url_for
+from datetime import datetime
 
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/myopenmic')
 client = MongoClient(host=f'{host}?retryWrites=false')
@@ -8,9 +10,19 @@ db = client.get_default_database()
 videos = db.videos
 comments = db.comments
 
-from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
+
+# Route for handling the login page logic
+# @app.route('/login', methods=['GET', 'POST'])
+# def login():
+#     error = None
+#     if request.method == 'POST':
+#         if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+#             error = 'Invalid Credentials. Please try again.'
+#         else:
+#             return redirect(url_for('home'))
+#     return render_template('login.html', error=error)
 
 @app.route('/')
 def videos_index():
@@ -29,7 +41,7 @@ def videos_submit():
         'title': request.form.get('title'),
         'description': request.form.get('description'),
         'videos': request.form.get('videos').split(),
-        # 'created_at': datetime.now()
+        'created_at': datetime.now()
     }
     print(video)
     video_id = videos.insert_one(video).inserted_id
