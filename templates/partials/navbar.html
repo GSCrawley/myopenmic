@@ -1,14 +1,21 @@
 <!-- templates/partials/navbar.html -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Your Open Mic</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<nav class='navbar navbar-default'>
-    <div class='container-fluid'>
-        <div class='navbar-header'>
-            <a class='navbar-brand' href='/'>
-                Your Open Mic
-            </a>
-        </div>
-        <div class='pull-right'>
-            <a href='/videos/new' class='btn btn-default navbar-btn'>Add New video</a>
-        </div>
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/">Home  </a>
+        </li> <br>
+      <li class="nav-item">
+          <a class="nav-link" href="/About">  About</a>
+      </li>
+    </ul>
+    <div class='pull-right'>
+        <a href='/videos/new' class='btn btn-default navbar-btn'>Add New video</a>
     </div>
+  </div>
 </nav>
