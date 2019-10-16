@@ -1,13 +1,17 @@
+
 <!-- templates/videos_index.html -->
 {% extends 'base.html' %}
 
 {% block content %}
 <h1>videos</h1>
 
-<a href='/videos/new'>New video</a>
+<div class='row'>
+    {% for video in videos %}
+        <div class='col-md-3'>
+            <h2><a href='/videos/{{ video._id }}'>{{ video.title }}</a></h2>
+            <small>{{ video.description }}</small>
+        </div>
+    {% endfor %}
+</div>
 
-{% for video in videos %}
-    <h2>{{ video.title }}</h2>
-    <small>{{ video.description }}</small>
-{% endfor %}
 {% endblock %}
