@@ -25,12 +25,12 @@ app = Flask(__name__)
 #     return render_template('login.html', error=error)
 
 
-@app.route('/')
+@app.route('/About')
 def videos_index():
     """Show all videos."""
     return render_template('videos_index.html', videos=videos.find())
 
-@app.route('/About')
+@app.route('/')
 def about():
     """Create About page"""
     return render_template('about.html')
