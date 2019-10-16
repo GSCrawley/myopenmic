@@ -33,7 +33,7 @@ def videos_index():
 @app.route('/')
 def about():
     """Create About page"""
-    return render_template('about.html')
+    return render_template('About.html')
 
 @app.route('/videos/new')
 def videos_new():
