@@ -1,0 +1,13 @@
+body {
+    background-image: url('https://broadstonemidtown.com/wp-content/uploads/2018/07/livemusic-1000x500.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.color-me{
+    color:black;
+}
+
+.navbar {
+    background: black !important;
+}
