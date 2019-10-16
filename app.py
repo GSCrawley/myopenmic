@@ -1,19 +1,16 @@
+import os
 from pymongo import MongoClient
+from bson.objectid import ObjectId
 
-client = MongoClient()
-db = client.myopenmic
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/myopenmic')
+client = MongoClient(host=host)
+db = client.get_default_database()
 videos = db.videos
+comments = db.comments
 
 from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
-
-# # OUR MOCK ARRAY OF PROJECTS
-# videos = [
-#     { 'title': 'Cat Videos', 'description': 'Cats acting weird' },
-#     { 'title': '80\'s Music', 'description': 'Don\'t stop believing!' }
-# ]
-
 
 @app.route('/')
 def videos_index():
@@ -25,14 +22,14 @@ def videos_new():
     """Create a new video."""
     return render_template('videos_new.html', video={}, title='New video')
 
-app.route('/videos', methods=['POST'])
+@app.route('/videos', methods=['POST'])
 def videos_submit():
     """Submit a new video."""
     video = {
         'title': request.form.get('title'),
         'description': request.form.get('description'),
         'videos': request.form.get('videos').split(),
-        'created_at': datetime.now()
+        # 'created_at': datetime.now()
     }
     print(video)
     video_id = videos.insert_one(video).inserted_id
