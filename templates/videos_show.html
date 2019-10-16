@@ -8,7 +8,7 @@
         <h1>{{video.title}}</h1>
         {% if video.created_at %}
         <p class='text-muted'>Created on {{ video.created_at.strftime('%A, %d %B, %Y') }}
-            at {{ video.created_at.strftime('%I:%M %p') }}</p>
+            at {{ video.created_at.strftime('%X') }}</p>
         {% endif %}
 
         <h2>{{ video.description }}</h2>
