@@ -1,0 +1,38 @@
+<!-- templates/videos_show.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<a href='/'>Back to Home</a>
+<div class='row'>
+    <div class='col-sm-6 col-sm-offset-3'>
+        <h1>{{video.title}}</h1>
+        {% if video.created_at %}
+        <p class='text-muted'>Created on {{ video.created_at.strftime('%A, %d %B, %Y') }}
+            at {{ video.created_at.strftime('%I:%M %p') }}</p>
+        {% endif %}
+
+        <h2>{{ video.description }}</h2>
+        {% for video in video.videos %}
+            <div class="card"><div class="card-body">
+                <iframe width="420" height="315" src="{{ video }}"></iframe>
+            </div></div>
+        {% endfor %}
+        <p><a href='/videos/{{ video._id }}/edit'>Edit</a></p>
+        <p><form method='POST' action='/videos/{{ video._id }}/delete'>
+            <input type='hidden' name='_method' value='DELETE'>
+            <button class='btn btn-primary' type='submit'>Delete</button>
+        </form></p>
+    <hr>
+    <!-- Comment form -->
+    {% include 'partials/comment_form.html' %}
+
+   <hr>
+
+   <!-- Show Comments -->
+   {% for comment in comments %}
+       {% include 'partials/comment.html' %}
+   {% endfor %}
+
+ </div>
+</div>
+{% endblock %}

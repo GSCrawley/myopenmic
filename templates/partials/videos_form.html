@@ -1,0 +1,21 @@
+<fieldset>
+    <legend>Edit Video</legend>
+    <!-- TITLE -->
+    <div class='form-group'>
+        <label for='video-title'>Title</label><br>
+        <input class='form-control' id='video-title' type='text' name='title' value='{{ video.title }}'/>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class='form-group'>
+        <label for='description'>Description</label><br>
+        <input class='form-control' id='description' type='text' name='description' value='{{ video.description }}' />
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class='form-group'>
+        <label for='video-videos'>Videos</label><br/>
+        <p class='text-muted'>Add videos in the form of 'https://youtube.com/embed/KEY'. Separate with a newline.</p>
+        <textarea class='form-control' id='video-videos' name='videos' rows='10' />{{ "\n".join(video.videos) }}</textarea>
+    </div>
+</fieldset>
