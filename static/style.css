@@ -5,6 +5,10 @@ body {
 }
 
 #demotext {text-shadow: -2px 1px 1px rgba(242,45,10,0.72);}
+#demotext1 {
+text-shadow: 2px 2px 0px #FFFFFF, 5px 4px 0px rgba(0,0,0,0.15), -8px 5px 1px rgba(225,220,227,0);
+color: #333333;
+}
 
 .color-me{
     color:black;
