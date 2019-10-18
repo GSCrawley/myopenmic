@@ -4,6 +4,8 @@ body {
     background-size: cover;
 }
 
+#demotext {text-shadow: -2px 1px 1px rgba(242,45,10,0.72);}
+
 .color-me{
     color:black;
 }
