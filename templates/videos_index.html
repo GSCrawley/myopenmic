@@ -3,13 +3,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div id="demotext">
 <h1>videos</h1>
 
 <div class='row'>
     {% for video in videos %}
         <div class='col-md-3'>
             <h2><a href='/videos/{{ video._id }}'>{{ video.title }}</a></h2>
-            <small>{{ video.description }}</small>
+            <h3>{{ video.description }}</h3>
         </div>
     {% endfor %}
 </div>
